@@ -4,6 +4,7 @@ import { useState } from 'react'
 import DarkModeToggle from '../../components/darkModeToggle/DarkModeToggle'
 import { signOut } from 'next-auth/react'
 import {useRouter} from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 const links = [
   {
@@ -41,6 +42,9 @@ const links = [
 const Navbar = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false)
   const router = useRouter()
+  const session = useSession()
+  console.log(session.status)
+
   return (
     <nav className=' flex justify-between py-3 space-x-4 items-center transition duration-500'>
         <Link href={'/'}
@@ -54,8 +58,11 @@ const Navbar = () => {
             }
           </div>
           <DarkModeToggle/>
-          <button onClick={()=>null}
-          className=' border-2 border-primary px-5 py-2 rounded-full'>Logout</button>
+      
+          {
+            session.status === 'authenticated' && <button onClick={()=>{signOut(); router('/dashboard/login')}}
+            className=' border px-4 py-1 rounded-md'>Logout</button>
+          }
         </div>
 
         {/* mobile nav */}
@@ -74,11 +81,13 @@ const Navbar = () => {
                 <div className='border  z-50 border-red-500 bg-bg-dark text-white  p-2 items-center min-w-full absolute left-0 right-0 flex flex-col space-y-2'>
                   {
                   links.map((link)=>(
-                <Link onClick={()=>setDropDownClicked((prev)=>!prev)} href={link.url} key={link.id}>{link.title}</Link>
+                  <Link onClick={()=>setDropDownClicked((prev)=>!prev)} href={link.url} key={link.id}>{link.title}</Link>
                   ))
                   }
-                  <button onClick={()=>{signOut(); router('/dashboard/login')}}
-                  className=' border px-4 py-1 rounded-md'>Logout</button>
+                  {
+                    session.status === 'authenticated' && <button onClick={()=>{signOut(); router('/dashboard/login')}}
+                    className=' border px-4 py-1 rounded-md'>Logout</button>
+                  }
                 </div>
               )
             }
