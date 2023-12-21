@@ -2,6 +2,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import DarkModeToggle from '../../components/darkModeToggle/DarkModeToggle'
+import { signOut } from 'next-auth/react'
+import {useRouter} from 'next/navigation'
+
 const links = [
   {
     id: 1,
@@ -37,8 +40,9 @@ const links = [
 
 const Navbar = () => {
   const [dropDownClicked, setDropDownClicked] = useState(false)
+  const router = useRouter()
   return (
-    <nav className=' flex justify-between py-3 space-x-4 items-center'>
+    <nav className=' flex justify-between py-3 space-x-4 items-center transition duration-500'>
         <Link href={'/'}
         className=' text-xl'>{process.env.NEXT_PUBLIC_APP_NAME}</Link>
         <div className=' hidden sm:flex items-center space-x-10'>
@@ -67,14 +71,14 @@ const Navbar = () => {
           }</button>
             {
               dropDownClicked && (
-                <div className='border z-50 border-red-500 bg-bg-dark text-white  p-2 items-center min-w-full absolute left-0 right-0 flex flex-col space-y-2'>
+                <div className='border  z-50 border-red-500 bg-bg-dark text-white  p-2 items-center min-w-full absolute left-0 right-0 flex flex-col space-y-2'>
                   {
-                links.map((link)=>(
+                  links.map((link)=>(
                 <Link onClick={()=>setDropDownClicked((prev)=>!prev)} href={link.url} key={link.id}>{link.title}</Link>
                   ))
                   }
-                  <button onClick={()=>null}
-          className=' border px-4 py-1 rounded-md'>Logout</button>
+                  <button onClick={()=>{signOut(); router('/dashboard/login')}}
+                  className=' border px-4 py-1 rounded-md'>Logout</button>
                 </div>
               )
             }

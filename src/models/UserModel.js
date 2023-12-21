@@ -3,8 +3,8 @@ import mongoose from 'mongoose'
 const {Schema} = mongoose
 
 const userSchema = new Schema({
-    name:{
-        tupe: String,
+    username:{
+        type: String,
         unique: true,
         required: true
     },
@@ -19,4 +19,10 @@ const userSchema = new Schema({
     }
 },{timestamps:true})
 
-export default mongoose.model('User',userSchema)
+let Users
+try{
+    Users = mongoose.model('User')
+}catch(error){
+    Users = mongoose.model('User',userSchema)
+}
+export default Users
