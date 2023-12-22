@@ -85,7 +85,7 @@ const Navbar = () => {
                   ))
                   }
                   {
-                    session.status === 'authenticated' && <button onClick={()=>{signOut(); router('/dashboard/login')}}
+                    session.status === 'authenticated' && <button onClick={()=>signOut()}
                     className=' border px-4 py-1 rounded-md'>Logout</button>
                   }
                 </div>

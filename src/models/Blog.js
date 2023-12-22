@@ -11,10 +11,10 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
-    img: {
+    image: {
         type: String,
     },
-    username: {
+    email: {
         type: String,
         required: true
     }

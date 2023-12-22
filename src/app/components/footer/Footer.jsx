@@ -22,7 +22,7 @@ const socialMedias = [
 ]
 const Footer = () => {
   return (
-    <footer className=' border-t-2 flex flex-col items-center justify-center'>
+    <footer className=' mt-5 border-t-2 flex flex-col items-center justify-center'>
         <div>
           {
             socialMedias.map((sm)=>(

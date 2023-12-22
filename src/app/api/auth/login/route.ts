@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import Users from "../../../../models/UserModel";
+import Users from "../../../../models/User";
 import { connect } from "../../../../utils/db"
 import bcrypt from 'bcrypt'
 
@@ -9,11 +9,11 @@ export const POST = async(req:NextRequest)=>{
     }
     try{
         await connect()
-        let {username, password} = await req.json()
-        console.log(username, password)
-        const user = await Users.findOne({username})
+        let {email, password} = await req.json()
+        console.log(email, password)
+        const user = await Users.findOne({email})
         if(!user){
-            return new NextResponse(JSON.stringify({message: 'no user with this username'}),{status:404})
+            return new NextResponse(JSON.stringify({message: 'no user with this email'}),{status:404})
         }
         let passMatch = await bcrypt.compare(password,user.password)
         if(!passMatch){

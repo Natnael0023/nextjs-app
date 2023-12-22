@@ -22,7 +22,8 @@ module.exports = {
         'txt-light': '#ffffff'
       },
       fontFamily: {
-        cabin: ['Cabin']
+        // cabin: ['Cabin'],
+        serif: ['Poppins']
       }
     },
   },

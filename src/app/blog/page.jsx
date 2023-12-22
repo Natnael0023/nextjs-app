@@ -1,21 +1,34 @@
 import React from 'react'
 import BlogItem from '../components/blogItem/BlogItem.jsx'
+import useSWR from 'swr'
 
-const getBlogs = async ()=>{
-  const res = await fetch('http://localhost:3000/api/blogs')
-  return await res.json()
+const getBlogs = async()=>{
+  // const fetcher = (...args) => fetch(...args).then(res => res.json())
+  // const { data, error, isLoading } = useSWR(`/api/blogs`, fetcher)
+  const res = await fetch('http://localhost:3000/api/blogs',{
+          method:'GET',
+          headers:{
+            "Content-Type":"application/json",
+          },
+        })
+       const data = await res.json()
+
+    return data.blogs
 }
+ 
 
 const blog = async () => {
-  const blogs = await  getBlogs()
-  console.log(blogs.length)
+  let blogs = await getBlogs()
   return (
-    <div className=' flex flex-col gap-3'>
-        {
+    <div className='  mx-auto lg:max-w-[65rem]'>
+        <div className=' grid lg:grid-cols-4 md:grid-cols-3 gap-5'>
+          {
           blogs.map((blog)=>(
-            <BlogItem key={blog._id} id={blog._id} title={blog.title} content={blog.body} image={blog.img} />
+            <BlogItem key={blog._id} id={blog._id} title={blog.title} content={blog.body} email={blog.email} image={blog.image} createdAt={blog.createdAt} />
+            
           ))
-        }
+          }
+        </div>
     </div>
   )
 }

@@ -1,10 +1,9 @@
 import NextAuth from "next-auth/next"
 import GoogleProvider from 'next-auth/providers/google'
 import { connect } from "../../../../utils/db";
-import Users from "../../../../models/UserModel";
+import Users from "../../../../models/User";
 import bcrypt from 'bcrypt'
 import CredentialsProvider  from "next-auth/providers/credentials";
-import { error } from "console";
 
 const handler =  NextAuth({
     providers: [
@@ -14,13 +13,15 @@ const handler =  NextAuth({
             async authorize(credentials){
                 await connect()
                 try{
-                    const user = await Users.findOne({username: credentials.username})
+                    const user = await Users.findOne({email: credentials.email})
                     if(!user){
-                        throw new Error('no user with this username')
+                        throw new Error('no user with this email')
+                        // console.log('@@@@@@@@@@@@@@@@@@@@@@@@ no user with this ema')
                     }
                     const passMatch = await bcrypt.compare(credentials.password,user.password)
                     if(!passMatch){
                         throw new Error('Incorrect password')
+
                     }
                     return user
                 }catch(err){
@@ -35,7 +36,16 @@ const handler =  NextAuth({
     ],
     pages: {
         error:'/dashboard/login'
-    }
+    },
+    // callbacks:{
+    //     async session({session}) {
+    //         if(session.user){
+    //           const sessionUser =  await Users.findOne({email: session.user.email})
+    //           session.user.username = sessionUser.username
+    //         }
+    //         return session
+    //     },
+    // }
 })
 
 export { handler as GET, handler as POST };

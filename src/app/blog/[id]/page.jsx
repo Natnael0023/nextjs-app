@@ -19,11 +19,11 @@ const post = async ({params}) => {
 
   return (
     <div>
-      <div className=' relative w-full h-40'>
+      <div className=' relative w-full h-60'>
         <Image
-        src={blog.img}
+        src={blog.image}
         fill
-        className=' object-cover'
+        className=' object-cover rounded'
         />
       </div>
 
@@ -36,7 +36,7 @@ const post = async ({params}) => {
             className=' rounded-full'/>
           </div>
           <div>
-            <p>{blog.username}</p>
+            <p>{blog.email}</p>
             <span className=' text-sm'>posted 2 days ago</span>
           </div>
         </div>

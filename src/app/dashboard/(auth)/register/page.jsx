@@ -11,7 +11,7 @@ const register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const data = {
-        username: e.target[0].value,
+        name: e.target[0].value,
         email: e.target[1].value,
         password: e.target[2].value
     }
@@ -52,7 +52,7 @@ const register = () => {
     <form action="" onSubmit={handleSubmit}
     className=' space-y-3'>
       <div>
-      <label for="" class="block  font-medium leading-6 ">Username</label>
+      <label for="" class="block  font-medium leading-6 ">Name</label>
         <div class="">
           <input id="username" name="username" type="text"  placeholder='Iron Man' required 
           class="block w-full bg-transparent  rounded-md border-0 py-2 px-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary outline-none  sm:leading-6"/>

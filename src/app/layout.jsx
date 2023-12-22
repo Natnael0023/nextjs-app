@@ -18,13 +18,15 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeProvider>
           <Provider>
-          <div className=' lg:px-44 md:px-10 px-3'>
+          <div className=' lg:px-44 md:px-10 px-3 mb-5'>
             <Navbar/>
               <div className=' min-h-screen'>
                 {children}
               </div>
           </div>
-          <Footer/>
+          <div className=' mt-5'>
+            <Footer/>
+          </div>
           </Provider>
         </ThemeProvider> 
       </body>

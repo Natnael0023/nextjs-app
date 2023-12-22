@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import User from "../../../../models/UserModel"
+import User from "../../../../models/User"
 import { connect } from "../../../../utils/db"
 import bcrypt from 'bcrypt'
 
@@ -32,7 +32,7 @@ export const POST = async (req:NextRequest)=>{
     }
     try{
         await connect()
-        let {username, email, password} = await req.json()
+        let {name, email, password} = await req.json()
         const userExist = await User.findOne({email})
         if(userExist){
             return new NextResponse(JSON.stringify({message:'User already exists'}), {
@@ -40,7 +40,7 @@ export const POST = async (req:NextRequest)=>{
                 headers:{'Content-Type':'application/json'},
              })
         }
-        const usernameTaken = await User.findOne({username})
+        const usernameTaken = await User.findOne({name})
         if(usernameTaken){
             return new NextResponse(JSON.stringify({message:'the username is taken'}), {
                 status: 400,
@@ -49,7 +49,7 @@ export const POST = async (req:NextRequest)=>{
         }
         // password = await hashPassword(password)
         password = await bcrypt.hash(password,10)
-        let newUser = new User({username,email,password})
+        let newUser = new User({name,email,password})
         newUser = await newUser.save()
         return new NextResponse(JSON.stringify({newUser}), {
             status: 201,
@@ -64,4 +64,3 @@ export const POST = async (req:NextRequest)=>{
     // const {username} = await req.json()
     // return NextResponse.json(username)
 }
-

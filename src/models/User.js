@@ -3,9 +3,8 @@ import mongoose from 'mongoose'
 const {Schema} = mongoose
 
 const userSchema = new Schema({
-    username:{
+    name:{
         type: String,
-        unique: true,
         required: true
     },
     email:{
@@ -19,10 +18,10 @@ const userSchema = new Schema({
     }
 },{timestamps:true})
 
-let Users
+let User
 try{
-    Users = mongoose.model('User')
+    User = mongoose.model('User')
 }catch(error){
-    Users = mongoose.model('User',userSchema)
+    User = mongoose.model('User',userSchema)
 }
-export default Users
+export default User
