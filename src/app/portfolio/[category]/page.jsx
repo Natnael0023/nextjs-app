@@ -34,8 +34,8 @@ const category =  ({params}) => {
                   <div className='  flex items-center justify-between w-full'>
                     <Button url={card.url} text={'View'}/>
                     <div className=' flex gap-3'>
-                      {card.techStack.map(tech=>(
-                        <h1 className=' text-secondary'>#{tech},</h1>
+                      {card.techStack.map((tech,index)=>(
+                        <h1 key={index} className=' text-secondary'>#{tech},</h1>
                       ))}
                     </div>
                   </div>
