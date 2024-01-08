@@ -3,6 +3,8 @@ import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import ThemeProvider from '../../context/ThemeContext'
 import {Provider} from './components/Provider'
+import Link from 'next/link'
+
 // import Footer from './components/footer/footer'
 // const inter = Inter({ subsets: ['latin'] })
 
