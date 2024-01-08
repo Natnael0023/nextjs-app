@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-export const Footer = () => {
+export const footer = () => {
   return (
 <footer class=" text-black border-t ">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -92,4 +92,4 @@ export const Footer = () => {
   )
 }
 
-export default Footer
+export default footer
