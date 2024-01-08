@@ -23,7 +23,6 @@ const Dashboard = () => {
   
   const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data, error, isLoading } = useSWR(`/api/blogs?email=${session?.data?.user?.email}`, fetcher)
-  console.log(data)
   if (isLoading) {
     return (
       <div role="status" className=' h-screen flex items-center justify-center'>

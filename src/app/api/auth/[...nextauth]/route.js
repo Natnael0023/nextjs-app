@@ -16,7 +16,6 @@ const handler =  NextAuth({
                     const user = await Users.findOne({email: credentials.email})
                     if(!user){
                         throw new Error('no user with this email')
-                        // console.log('@@@@@@@@@@@@@@@@@@@@@@@@ no user with this ema')
                     }
                     const passMatch = await bcrypt.compare(credentials.password,user.password)
                     if(!passMatch){

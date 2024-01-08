@@ -25,7 +25,7 @@ const HeroSection = () => {
         </Link>
       </div>
 
-      <div className=" animate-spi rounded-full mt-2 flex justify-center items-center  lg:w-[27rem] lg:h-[27rem]">
+      <div className="  hidden animate-spi rounded-full mt-2 sm:flex justify-center items-center  lg:w-[27rem] lg:h-[27rem]">
         {/* <div className=" relative w-full h-full  mx-auto  ">
           <Image
           src={''}

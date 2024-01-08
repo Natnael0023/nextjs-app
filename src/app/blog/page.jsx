@@ -2,18 +2,18 @@
 
 import React from 'react'
 import BlogItem from '../components/blogItem/BlogItem.jsx'
-// import useSWR from 'swr'
+import useSWR from 'swr'
 
 const getBlogs = async()=>{
-  // const fetcher = (...args) => fetch(...args).then(res => res.json())
-  // const { data, error, isLoading } = useSWR(`/api/blogs`, fetcher)
-  const res = await fetch('http://localhost:3000/api/blogs',{
-          method:'GET',
-          headers:{
-            "Content-Type":"application/json",
-          },
-        })
-       const data = await res.json()
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data, error, isLoading } = useSWR(`/api/blogs`, fetcher)
+  // const res = await fetch('/api/blogs',{
+  //         method:'GET',
+  //         headers:{
+  //           "Content-Type":"application/json",
+  //         },
+  //       })
+  //      const data = await res.json()
 
     return data.blogs
 }
