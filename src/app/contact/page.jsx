@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import Button from '../components/button/Button'
-import useSWR from 'swr'
+// import useSWR from 'swr'
 
 // export const metadata = {
 //   title: 'contact',
@@ -19,15 +19,15 @@ const page = () => {
        message: e.target[2].value
     }
     try{
-      const fetcher = (...args) => fetch(...args).then(res => res.json())
-      const { data, error, isLoading } = useSWR(`/api/sendMail`, fetcher)
-      // await fetch('/api/sendMail',{
-      //   method:'POST',
-      //   headers:{
-      //     "Content-Type":"application/json",
-      //   },
-      //   body: JSON.stringify(mailData)
-      // })
+      // const fetcher = (...args) => fetch(...args).then(res => res.json())
+      // const { data, error, isLoading } = useSWR(`/api/sendMail`, fetcher)
+      await fetch('/api/sendMail',{
+        method:'POST',
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body: JSON.stringify(mailData)
+      })
     }catch(err){
       console.log(err)
     }

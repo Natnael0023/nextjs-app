@@ -11,7 +11,7 @@ export const BlogItem = ({id,title, content,email, image, createdAt}) => {
     const session = useSession()
 
     const handleDelete = async()=>{
-        const res = await fetch(`http://localhost:3000/api/blogs/${id}`,{
+        const res = await fetch(`/api/blogs/${id}`,{
             method:'DELETE',
             headers:{
                 "Content-Type":"application/json",
