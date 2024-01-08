@@ -28,7 +28,7 @@ const Faqs = () => {
         <h1 className=' text-2xl font-bold text-center'>FAQs</h1>
         <div className=' mt-4 grid grid-cols-2 gap-4'>
             {faqs.map(faq=>(
-                <div className=''>
+                <div className='' key={faq.id}>
                     <div className=' flex items-center gap-2'>
                         <div className=' p-2 bg-primary rounded-full text-white'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

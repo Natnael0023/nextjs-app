@@ -4,7 +4,7 @@ import {useSession, signIn, signOut} from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-const login = () => {
+const Login = () => {
   const  session = useSession()
   const router = useRouter()
   if(session.status === 'loading'){
@@ -90,7 +90,7 @@ const login = () => {
     </form>
     
     <p className="mt-10 text-center text-gray-500">
-      Don't have an account?
+      Dont have an account?
       <Link href={'/dashboard/register'}
       className=' font-semibold'> SignUp</Link>
     </p>
@@ -115,4 +115,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

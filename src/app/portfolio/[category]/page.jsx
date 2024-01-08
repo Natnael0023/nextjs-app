@@ -54,6 +54,7 @@ const category =  ({params}) => {
               <Image
               src={'https://img.freepik.com/free-vector/chemistry-online-lessons-biochemist-presentation-science-class-e-learning-laboratory-worker-cartoon-character-explaining-pharmaceutical-researches_335657-3442.jpg?w=740&t=st=1704702342~exp=1704702942~hmac=4b21d5bebd9006dd72d6e362c08e7901db5c6bd963415f96eadc479c3b4f1127'}
               fill
+              alt='image'
               className=' object-cover '
               />
             </div>

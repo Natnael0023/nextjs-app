@@ -51,7 +51,7 @@ const Solutions = () => {
         <div>
             <div className=' flex  flex-col gap-4'>
             {ourSolutions.map(solution=>(
-                <div className={`flex gap-4  ${solution.id %2 ===0? 'flex-row-reverse':''}`}>
+                <div key={solution.id} className={`flex gap-4  ${solution.id %2 ===0? 'flex-row-reverse':''}`}>
                     <div className=' flex flex-col justify-center gap-5'>
                         <div className=' flex items-center gap-2'>
                             <span className=' bg-primary p-2 text-2xl text-white'>{solution.icon}</span>

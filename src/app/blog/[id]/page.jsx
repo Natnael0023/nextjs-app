@@ -23,6 +23,7 @@ const post = async ({params}) => {
         <Image
         src={blog.image}
         fill
+        alt='image'
         className=' object-cover rounded'
         />
       </div>
@@ -33,6 +34,7 @@ const post = async ({params}) => {
             <Image 
             src={blog.image}
             fill
+            alt='image'
             className=' rounded-full'/>
           </div>
           <div>

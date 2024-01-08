@@ -93,7 +93,7 @@ const Dashboard = () => {
         <div className=' grid lg:grid-cols-4 md:grid-cols-3 gap-3'>
           {
             data.blogs.map(blog=>(
-              <BlogItem id={blog._id} title={blog.title} image={blog.image} email={session?.data?.user?.email}/>
+              <BlogItem key={blog.id} id={blog._id} title={blog.title} image={blog.image} email={session?.data?.user?.email}/>
             ))
           }
         </div>

@@ -1,9 +1,6 @@
 import t from '../../../../public/t1.png'
 import tew from '../../../../public/tew.png'
 
-
-
-
 export const items = [
     {
       id: 1,
@@ -22,7 +19,6 @@ export const items = [
       img: tew,
       techStack:['Laravel','JavaScript','Livewire','Blade'],
       url:'https://etbolo.com/home'
-
     },
     {
       id: 3,

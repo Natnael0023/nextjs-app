@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 
-const register = () => {
+const Register = () => {
 
   const router = useRouter()
 
@@ -93,4 +93,4 @@ const register = () => {
   )
 }
 
-export default register
+export default Register

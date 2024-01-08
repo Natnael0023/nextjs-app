@@ -37,11 +37,12 @@ const portfolio = () => {
        <div className='  grid grid-cols-3 justify-center items-center gap-6'>
         {
           categories.map((category)=>(
-            <Link className=' relative lg:w-[20rem]  flex hover:scale-105 transition duration-500 sm:flex-col rounded' href={`portfolio/${category.name}`}>
+            <Link key={category.id} className=' relative lg:w-[20rem]  flex hover:scale-105 transition duration-500 sm:flex-col rounded' href={`portfolio/${category.name}`}>
               <div className=' relative lg:w-[20rem] h-[16rem]'>
                 <Image 
                 src={category.image} 
                 fill
+                alt='image'
                 className=' rounded'/>
               </div>
               <span className=' absolute h-full w-full rounded flex items-center justify-center text-2xl font-semibold hover:bg-black hover:bg-opacity-30 hover:text-white'>{category.name}</span>

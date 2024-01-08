@@ -13,9 +13,9 @@ const page = () => {
         </div>
         <div className=' relative flex-1 h-[23rem] border  rounded-lg'>
           <Image 
-          // src={'https://img.freepik.com/free-vector/interesting-chemistry-facts-online-searching-self-education-exam-preparing-internet-surfing-man-woman-characters-browsing-scientific-website_335657-3449.jpg?t=st=1704652290~exp=1704652890~hmac=eadeeb3cc8df96bc2ca2ebafdc93a1ac3905c789124c5fe518622d5b480567b5'}
           src={nat}
           fill={true}
+          alt='image'
           className=' object-contain  rounded-lg'
           />
         </div>
@@ -34,9 +34,9 @@ const page = () => {
        <div className=' text-justify text-xl leading-8'>
        At {process.env.NEXT_PUBLIC_APP_NAME} Solutions, we offer a comprehensive range of ICT solutions designed to empower businesses and streamline their operations. Our expertise spans across various domains, including network infrastructure, cloud services, cybersecurity, software development, and IT consulting. Whether you need to establish a robust network infrastructure, migrate to the cloud, safeguard your digital assets, develop custom software, or align your technology strategy with your business goals, we have the knowledge and experience to deliver tailored solutions that drive success.
 
-We combine cutting-edge technologies, industry best practices, and a deep understanding of our clients' business requirements to deliver scalable, secure, and cost-effective solutions. Our team of skilled professionals works closely with clients to understand their unique challenges and goals, and then designs and implements solutions that address their specific needs. With a commitment to excellence and a passion for innovation, we help businesses harness the power of technology to navigate the digital landscape and achieve sustainable growth.
+We combine cutting-edge technologies, industry best practices, and a deep understanding of our clients business requirements to deliver scalable, secure, and cost-effective solutions. Our team of skilled professionals works closely with clients to understand their unique challenges and goals, and then designs and implements solutions that address their specific needs. With a commitment to excellence and a passion for innovation, we help businesses harness the power of technology to navigate the digital landscape and achieve sustainable growth.
 
-Please note that the content provided is a general example, and you can customize it based on your company's specific values, services, and achievements.
+Please note that the content provided is a general example, and you can customize it based on your company specific values, services, and achievements.
        </div>
         <Button text={'Contact'} url={'/'}/>
         </div>
