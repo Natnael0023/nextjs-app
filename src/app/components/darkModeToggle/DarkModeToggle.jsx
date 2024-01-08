@@ -4,7 +4,6 @@ import { ThemeContext } from '../../../../context/ThemeContext'
 
 export const DarkModeToggle = () => {
     const  {mode, toggleTheme} = useContext(ThemeContext)
-    console.log(mode)
   return (
     <div>
         {

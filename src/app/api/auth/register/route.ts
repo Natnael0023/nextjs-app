@@ -33,20 +33,20 @@ export const POST = async (req:NextRequest)=>{
     try{
         await connect()
         let {name, email, password} = await req.json()
-        const userExist = await User.findOne({email})
-        if(userExist){
-            return new NextResponse(JSON.stringify({message:'User already exists'}), {
-                status: 400,
-                headers:{'Content-Type':'application/json'},
-             })
-        }
-        const usernameTaken = await User.findOne({name})
-        if(usernameTaken){
-            return new NextResponse(JSON.stringify({message:'the username is taken'}), {
-                status: 400,
-                headers:{'Content-Type':'application/json'},
-             })
-        }
+        // const userExist = await User.findOne({email})
+        // if(userExist){
+        //     return new NextResponse(JSON.stringify({message:'User already exists'}), {
+        //         status: 400,
+        //         headers:{'Content-Type':'application/json'},
+        //      })
+        // }
+        // const usernameTaken = await User.findOne({name})
+        // if(usernameTaken){
+        //     return new NextResponse(JSON.stringify({message:'the username is taken'}), {
+        //         status: 400,
+        //         headers:{'Content-Type':'application/json'},
+        //      })
+        // }
         // password = await hashPassword(password)
         password = await bcrypt.hash(password,10)
         let newUser = new User({name,email,password})

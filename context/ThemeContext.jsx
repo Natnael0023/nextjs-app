@@ -5,7 +5,7 @@ import { createContext, useState } from "react"
 export const ThemeContext = React.createContext()
 
 const ThemeProvider = ({children}) => {
-    const [mode, setMode] = useState('')
+    const [mode, setMode] = useState('light')
 
     useEffect(()=>{
         const saved = localStorage.getItem('mode')

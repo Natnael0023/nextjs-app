@@ -1,30 +1,67 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import Button from '../components/button/Button'
 
-export const metadata = {
-  title: 'contact',
-  description: 'contact page',
-}
+// export const metadata = {
+//   title: 'contact',
+//   description: 'contact page',
+// }
 
 const page = () => {
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    const mailData = {
+       email: e.target[0].value,
+       subject:e.target[1].value,
+       message: e.target[2].value
+    }
+    try{
+      await fetch('http://localhost:3000/api/sendMail',{
+        method:'POST',
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body: JSON.stringify(mailData)
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
+
   return (
-    <div className=' border border-red-400 flex flex-col items-center space-y-10'>
-        <h1 className=' text-2xl'>Have an amazing idea? let's talk</h1>
-        <div className=' flex space-x-8'>
-          <div className=' relative w-[20rem] h-[20rem]'>
-            <Image
-            src={'https://img.freepik.com/free-photo/ai-cloud-concept-with-robot-arm_23-2149739748.jpg?w=900&t=st=1702890196~exp=1702890796~hmac=cac84587bf47e38247efc038ff214b0e70057a9e11c4f58fab0aa7a7f66e4e64'}
-            fill
-            className=' hover:animate-pulse object-cover'/>
-          </div>
-          <div className=' flex flex-col space-y-10'>
-            <div className=' flex flex-col space-y-3'>
-              <input className=' p-2 rounded' type="text" placeholder='name' />
-              <input className=' p-2 rounded' type="text" placeholder='name' />
-              <textarea className=' p-2 rounded' placeholder=' message' name="" id="" cols="30" rows="4"></textarea>
+    <div className='  flex flex-col lg:w-[70rem] mx-auto'>
+      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center  ">Contact Us</h2>
+      <p class=" font-light text-center sm:text-xl">Have an amazing idea? Got a technical issue? Need details about our Business plan? Let us know.</p>
+        <div className=' flex '>
+          <section class=" flex-1">
+            <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+
+              <form action="#" class="space-y-8" onSubmit={handleSubmit}>
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium  ">Your email</label>
+                    <input type="email" id="email" class="shadow-sm  border   text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  bg-transparent    dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@email.com" required/>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium  ">Subject</label>
+                    <input type="text" id="subject" class="block p-3 w-full text-sm   rounded-lg border  shadow-sm focus:ring-primary-500 focus:border-primary-500  bg-transparent    dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required/>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium  ">Your message</label>
+                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm   rounded-lg shadow-sm border  focus:ring-primary-500 focus:border-primary-500  bg-transparent    dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+                </div>
+                <button type="submit" class="py-3 px-5 text-sm font-medium text-center  rounded-lg hover:shadow-md shadow-primary bg-primary sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+              </form>
             </div>
-            <Button url={'/'} text={'Send'}/>
+          </section>
+
+          <div className=' relative lg:w-[30rem] lg:h-[40rem] '>
+            <Image
+             src={'https://img.freepik.com/free-vector/sales-plan-business-abstract-concept-vector-illustration-marketing-plan-presentation-business-strategy-profit-forecast-commercial-goal-sales-management-target-group-abstract-metaphor_335657-2889.jpg?w=740&t=st=1704626461~exp=1704627061~hmac=0c0ea54c67d543691e9a876b9ff6b8922439aea1a7df0046232171087656847a'}
+             fill
+             alt=''
+             className=' object-cover'/>
           </div>
         </div>
     </div>
@@ -32,3 +69,5 @@ const page = () => {
 }
 
 export default page
+
+// 

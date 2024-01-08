@@ -1,6 +1,8 @@
+
+
 import React from 'react'
 import BlogItem from '../components/blogItem/BlogItem.jsx'
-import useSWR from 'swr'
+// import useSWR from 'swr'
 
 const getBlogs = async()=>{
   // const fetcher = (...args) => fetch(...args).then(res => res.json())

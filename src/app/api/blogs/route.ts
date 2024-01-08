@@ -31,5 +31,4 @@ export const POST = async (request:NextRequest) => {
     }catch(err){
         return new NextResponse(err)
     }
-    
 }

@@ -23,9 +23,11 @@ module.exports = {
       },
       fontFamily: {
         // cabin: ['Cabin'],
-        serif: ['Poppins']
+        sans: ['Inter']
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-gradients'),
+  ],
 }

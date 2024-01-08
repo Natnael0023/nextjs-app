@@ -101,7 +101,7 @@ const Dashboard = () => {
           <form action="" onSubmit={handleSubmit}
           className=' flex flex-col gap-2'>
             <h1 className=' text-2xl font-bold'>Publish new blog</h1>
-            <input type="text" placeholder='title' id='title' className=' text-3xl font-bold p-2 w-full bg-transparent border rounded' />
+            <input type="text" placeholder='title' id='title' className='text-3xl font-bold p-2 w-full bg-transparent border rounded' />
             <textarea name="" placeholder='body' className=' w-full p-2 rounded  bg-transparent border' id="" cols="30" rows="5"></textarea>
             <input type="file" name="" id="" />
             <button type='submit' 
